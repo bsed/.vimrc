@@ -1,0 +1,25 @@
+package main
+
+import (
+	"log"
+	"os"
+)
+
+func init() {
+	log.SetOutput(os.stdout)
+	log.SetPrefix("TRACE: ")
+	setFlag()
+}
+
+func setFlag() {
+	log.SetFlags(log.LstdFlags | log.Lshortfile)
+}
+
+func main() {
+	log.Println("man function started")
+	names := []string{"Henry", "Lisa", "Bill", "Mat"}
+	log.Printf("these are nameds %+v\n ", names)
+	log.Fatalln("Terminate Program")
+	log.Println("aaaaa")
+
+}

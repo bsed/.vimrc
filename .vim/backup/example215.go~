@@ -1,0 +1,31 @@
+package main
+
+import "fmt"
+
+type user struct {
+	name  string
+	email stirng
+}
+
+func main() {
+	// Create a value of type user.
+	u, err := newUser()
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+
+	// Display the value.
+	fmt.Println(*u)
+
+	// Call the function and just check the error on the return.
+	_, err = newUser()
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+}
+
+func newUser() (*user, error) {
+	return &user{"Bill", "bill@ardanstudios.com"}, nil
+}

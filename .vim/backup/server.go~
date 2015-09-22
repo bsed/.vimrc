@@ -1,0 +1,22 @@
+package main
+
+import (
+	"github.com/go-martini/martini"
+	"net/http"
+)
+
+func main() {
+	m := martini.Classic()
+	m.Get("/", func() string {
+		return "Hello world"
+	})
+	m.Get("/hello/:name", Auth, func(params martini.Params) string {
+		return "Hello " + params["name"]
+	})
+	m.Run()
+}
+func Auth(res http.ResponseWriter, req *http.Request) {
+	if req.Header.Get("API-KEY") != "secrect123" {
+		http.Error(res, "Nope", 401)
+	}
+}

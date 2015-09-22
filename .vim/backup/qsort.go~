@@ -1,0 +1,49 @@
+package main
+
+/*
+ * qsort for golang
+ */
+
+import (
+	"fmt"
+)
+
+func QSort(arr []int, start int, end int) {
+	var (
+		key  int = arr[start]
+		low  int = start
+		high int = end
+	)
+	for {
+		for low < high {
+			if arr[high] < key {
+				arr[low] = arr[high]
+				break
+			}
+			high--
+		}
+		for low < high {
+			if arr[low] > key {
+				arr[high] = arr[low]
+				break
+			}
+			low++
+		}
+		if low >= high {
+			arr[low] = key
+			break
+		}
+	}
+	if low-1 > start {
+		QSort(arr, start, low-1)
+	}
+	if high+1 < end {
+		QSort(arr, high+1, end)
+	}
+}
+
+func main() {
+	arr := []int{5, 11, 300, 0, 89, 88, 107, 4, 6}
+	QSort(arr, 0, len(arr)-1)
+	fmt.Println(arr)
+}
