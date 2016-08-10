@@ -1,6 +1,11 @@
-# .vimrc
+# .vimrc config
 
-vim configure
+## 安装插件管理工具  
+```bash
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+```
+
+## vim configure
 
 open `.vimrc`
 run `PluginInstall`  install bundle
