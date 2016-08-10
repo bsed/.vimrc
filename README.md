@@ -6,8 +6,9 @@ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 ```
 
 ## vim configure
+```
+$`vim  .vimrc`
+```
+run `:PluginInstall`  install bundle
 
-open `.vimrc`
-run `PluginInstall`  install bundle
-
-ok
+ok is over
